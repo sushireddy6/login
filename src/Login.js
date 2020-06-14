@@ -184,7 +184,7 @@ class Login extends Component {
       <div>
         <MuiThemeProvider>
         <AppBar
-             title="Login"
+             title="Byrds"
            />
         </MuiThemeProvider>
         <MuiThemeProvider>
