@@ -6,6 +6,9 @@ import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Login from './Login';
 import NGORegister from './NGORegister';
+//import DatePicker from "react-datepicker";
+import {GenderInput} from 'react-gender-input';
+import data from "./data.json";
 
 
 class PatronRegister extends Component {
@@ -36,16 +39,21 @@ class PatronRegister extends Component {
     console.log('self props', this.props.appContext)
     //if (this.props.appContext.state.isVerified) {
 
-      var apiBaseUrl = "http://localhost:8080/api/";
-      // console.log("values in register handler",role);
-      var self = this;
-      //To be done:check for empty values before hitting submit
-      if (this.state.firstName.length > 0 && this.state.lastName.length > 0 && this.state.emailId.length > 0 && this.state.password.length > 0) {
+    var apiBaseUrl = { apiBaseUrl };
+    // console.log("values in register handler",role);
+    var self = this;
+    //To be done:check for empty values before hitting submit
+    //if (this.state.password != this.state.confirmPassword) {
+    //alert("password does not match");
+
+
+    if (this.state.firstName.length > 0 && this.state.lastName.length > 0 && this.state.emailId.length > 0 && this.state.password.length > 0) {
+      if (this.state.password === this.state.confirmPassword) {
         var payload = {
           "firstName": this.state.firstName,
           "middleName": this.state.middleName,
           "lastName": this.state.lastName,
-          "userid": this.state.emailId,
+          "emailId": this.state.emailId,
           "password": this.state.password,
           "confirmPassword": this.state.confirmPassword,
           "dob": this.state.dob,
@@ -55,12 +63,12 @@ class PatronRegister extends Component {
           "verifiedPhone": "Yes - OTP",
           "verifiedCaptcha": "Yes"
         }
-        axios.post('http://localhost:8080/api/patrons', payload)
+        axios.post('./property/{api.patrons}', payload)
           .then(function (response) {
             console.log(response);
             if (response.status === 200) {
-               console.log("registration successfull");
-               alert("Registration successfull!! use " + response.data.data._id + " for login purposes");
+              console.log("registration successfull");
+              alert("Registration successfull!! use " + response.data.data._id + " for login purposes");
               var loginscreen = [];
               var loginButtons = [];
               var userRole = "patron";
@@ -69,14 +77,14 @@ class PatronRegister extends Component {
               var loginmessage = "Not Registered yet.Go to registration";
               loginButtons.push(
                 <div>
-                    <MuiThemeProvider>
-                        <div>
-                            <RaisedButton label={"Register"} primary={true} style={style}
-                                onClick={(event) => this.handleClick(event, userRole)} />
-                        </div>
-                    </MuiThemeProvider>
+                  <MuiThemeProvider>
+                    <div>
+                      <RaisedButton label={"Register"} primary={true} style={style}
+                        onClick={(event) => this.handleClick(event, userRole)} />
+                    </div>
+                  </MuiThemeProvider>
                 </div>
-            )
+              )
               self.props.parentContext.setState({
                 loginscreen: loginscreen,
                 loginButtons: loginButtons,
@@ -91,12 +99,15 @@ class PatronRegister extends Component {
           .catch(function (error) {
             //console.log(error);
           });
-      } else {
-        alert("Input field value is missing");
       }
-   /* } else {
-      alert('Please verify that you are a human!');
-    }*/
+    } else {
+      alert("Input field value is missing");
+    }
+
+    /* } else {
+       alert('Please verify that you are a human!');
+     }*/
+    // }
   }
 
   render() {
@@ -126,7 +137,7 @@ class PatronRegister extends Component {
             <TextField
               hintText="Enter your Middle Name"
               floatingLabelText="Middle Name"
-              onChange={(event, newValue) => this.setState({ lastName: newValue })}
+              onChange={(event, newValue) => this.setState({ middleName: newValue })}
             />
             <br />
             <TextField
@@ -136,17 +147,26 @@ class PatronRegister extends Component {
               onChange={(event, newValue) => this.setState({ lastName: newValue })}
             />
             <br />
-            <TextField
-              hintText="Enter your Date of Birth"
+            <TextField        
               floatingLabelText="Date of Birth"
+              type="date" className={"datecolor"}
               onChange={(event, newValue) => this.setState({ dob: newValue })}
             />
+            {/* <DatePicker
+              selected={this.state.date}
+              onChange={this.handleChange}
+            /> */}
             <br />
-            <TextField
+            {/* <TextField
               hintText="Gender"
               floatingLabelText="Gender"
               onChange={(event, newValue) => this.setState({ gender: newValue })}
-            />
+            /> */}
+             <GenderInput
+            name="my-gender-field-name"
+            onUpdate={(value) => this.setState({ gender:value})}
+            value = {this.state.gender}
+            /> 
             <br />
             <TextField
               hintText="Enter your Phone Number"
@@ -178,7 +198,7 @@ class PatronRegister extends Component {
             <br />
             <RaisedButton label="Register" primary={true} style={style}
               onClick={(event) => this.handleClick(event, this.props.role)} />
-             
+
           </div>
         </MuiThemeProvider>
       </div>

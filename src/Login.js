@@ -57,8 +57,8 @@ class Login extends Component {
                     <MuiThemeProvider>
                         <div>
                             <TextField
-                                hintText="Enter your PatronId"
-                                floatingLabelText="PatronId"
+                                hintText="Enter your EmaiId"
+                                floatingLabelText="EmailId"
                                 onChange={(event, newValue) => this.setState({ username: newValue })}
                             />
                             <br />
@@ -82,8 +82,8 @@ class Login extends Component {
                     <MuiThemeProvider>
                         <div>
                             <TextField
-                                hintText="Enter your NGO Id"
-                                floatingLabelText="NGO Id"
+                                hintText="Enter your EmailId"
+                                floatingLabelText="EmailId"
                                 onChange={(event, newValue) => this.setState({ username: newValue })}
                             />
                             <br />
@@ -178,8 +178,8 @@ class Login extends Component {
                 <MuiThemeProvider>
                     <div>
                         <TextField
-                            hintText="Enter your PatronId"
-                            floatingLabelText="Patron Id"
+                            hintText="Enter your EmailId"
+                            floatingLabelText="EmailId"
                             onChange={(event, newValue) => this.setState({ username: newValue })}
                         />
                         <br />
@@ -204,8 +204,8 @@ class Login extends Component {
                 <MuiThemeProvider>
                     <div>
                         <TextField
-                            hintText="Enter your NGOId"
-                            floatingLabelText="NGO Id"
+                            hintText="Enter your EmailId"
+                            floatingLabelText="EmailId"
                             onChange={(event, newValue) => this.setState({ username: newValue })}
                         />
                         <br />

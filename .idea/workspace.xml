@@ -26,15 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd29170-1647-4076-ae1a-c3ca74c09a84" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loginscreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loginscreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pastfiles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Register.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UploadPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UploadScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PatronRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatronRegister.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ngoregister.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ngoregister.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +48,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -67,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1592275839552</updated>
       <workItem from="1592275841642" duration="1666000" />
+      <workItem from="1592458903260" duration="1565000" />
     </task>
     <servers />
   </component>
@@ -95,6 +93,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="93" y="93" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592277510096">

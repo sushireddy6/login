@@ -6,6 +6,13 @@ import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Login from './Login';
 import FounderDetails from './FounderDetails';
+import CitySelector from "react-city-selector";
+
+//import { ICountry, IState, ICity } from 'country-state-city'
+import data from "./data.json";
+
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+
 
 
 
@@ -45,6 +52,8 @@ class NGORegister extends Component {
         //console.log("values in register handler",role);
         var self = this;
         //To be done:check for empty values before hitting submit
+        //if (this.state.password != this.state.confirmPassword) {
+          //  alert("password does not match");
         if (this.state.NGOName.length > 0 && this.state.address1.length > 0 && this.state.emailId.length > 0 && this.state.password.length > 0) {
             var payload = {
                 "NGOName": this.state.NGOName,
@@ -112,7 +121,8 @@ class NGORegister extends Component {
          else {
              alert('Please verify that you are a human!');
          }*/
-    }
+   // }
+}
 
     render() {
         // console.log("props",this.props);
@@ -151,30 +161,44 @@ class NGORegister extends Component {
                             onChange={(event, newValue) => this.setState({ address2: newValue })}
                         />
                         <br />
-
-                        <TextField
+                        <label className={"countryformat countryflip"}>Country</label>
+                        <CountryDropdown className="countrycolor countryformat " name="COUNTRY"
+                            value={this.state.country}
+                            valueType="short" priorityOptions={["US", "CA"]} showDefaultOption={false}
+                            onChange={(value) => this.setState({ country: value })} /><br/>
+                        <label className={"countryformat countryflip"}>State</label>
+                        <RegionDropdown className="countrycolor stateformat " name="STATE"
+                            country={this.state.country}
+                            value={this.state.state}
+                            valueType="short"
+                            countryValueType="short"
+                            showDefaultOption={false}
+                            defaultOptionLabel={"Select State"}
+                            onChange={(value) =>this.setState({ state: value })} />   
+                        {/* <TextField
                             hintText="country"
                             floatingLabelText="country"
                             onChange={(event, newValue) => this.setState({ country: newValue })}
-                        />
+                        /> */}
                         <br />
 
-                        <TextField
+                        {/* <TextField
                             hintText="state"
                             floatingLabelText="state"
                             onChange={(event, newValue) => this.setState({ state: newValue })}
-                        />
+                        /> */}
                         <br />
-                        <TextField
+                        {/* <TextField
                             hintText="Enter your city"
                             floatingLabelText="city"
                             onChange={(event, newValue) => this.setState({ city: newValue })}
-                        />
+                        /> */}
+                         <CitySelector  onChange={(event, newValue) => this.setState({ city: newValue })}/>
                         <br />
 
                         <TextField
                             hintText="dateofincorporation"
-                            type="date"
+                            type="date" 
                             floatingLabelText="dateofincorporation"
                             onChange={(event, newValue) => this.setState({ dateofincorporation: newValue })}
                         />
@@ -223,6 +247,7 @@ class NGORegister extends Component {
                         <br />
                         <RaisedButton label="Register" primary={true} style={style}
                             onClick={(event) => this.handleClick(event, this.props.role)} />
+                            
                     </div>
                 </MuiThemeProvider>
             </div>

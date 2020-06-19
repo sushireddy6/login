@@ -7,5 +7,41 @@
 
 .g-recaptcha {
   display: inline-block;
- 
 }
+.countryformat{
+   background: transparent;
+   border: none;
+   border-bottom: 1px solid #edede8;
+   /* color: #c9c9c7 ; */
+   width: 200px;
+   margin-top: 45px;
+  }
+  .stateformat{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #edede8;
+    /* color: #c9c9c7 ; */
+    width: 220px;
+    margin-top: 57px;
+   
+   }
+  .countrycolor{
+    color: black;
+  }
+  .countryformat:hover{
+    border-bottom: 2px solid rgb(11, 171, 235);
+  }
+  .stateformat:hover{
+    border-bottom: 2px solid rgb(11, 171, 235);
+  }
+  .countryflip{
+    color: rgb(185, 183, 183);
+    
+  }
+  .countryflip:hover{
+    color: black;
+   
+  }
+  .datecolor{
+    color: #edede8;;
+  }
